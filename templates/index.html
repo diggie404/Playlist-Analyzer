@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify Playlist Analyzer</title>
+</head>
+<body>
+    <h1>Spotify Playlist Analyzer</h1>
+    <p>Haz clic en el botón para autenticarte con Spotify:</p>
+    <button id="authorize-btn">Authorize with Spotify</button>
+    <div id="result"></div>
+
+    <script>
+        // Código para autenticar al usuario con Spotify
+        document.getElementById('authorize-btn').addEventListener('click', async () => {
+            const res = await fetch('/authorize');
+            const { auth_url } = await res.json();
+            window.location.href = auth_url;
+        });
+    </script>
+</body>
+</html>
